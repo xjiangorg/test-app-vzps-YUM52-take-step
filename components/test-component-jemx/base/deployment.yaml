@@ -25,7 +25,7 @@ spec:
         app.kubernetes.io/instance: test-component-jemx
     spec:
       containers:
-      - image: quay.io/redhat-appstudio-qe/test-images:d8f2a3c383e145aa8ee5a3d96ded4bf8
+      - image: quay.io/redhat-appstudio-qe/test-images@sha256:ff7cfe2ead2d23c7002ba7b99980c6d0de04ba02356495c8f0b1e0975572e6e6
         name: my-python
         ports:
         - containerPort: 8081
