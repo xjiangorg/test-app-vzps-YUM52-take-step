@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: test-component-jemx
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: test-component-jemx
+    app.kubernetes.io/part-of: test-app-vzps
+  name: test-component-jemx
+  namespace: build-e2e-khmn-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app
+      app.kubernetes.io/instance: test-component-jemx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: python-app
+        app.kubernetes.io/instance: test-component-jemx
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio-qe/test-images:d8f2a3c383e145aa8ee5a3d96ded4bf8
+        name: my-python
+        ports:
+        - containerPort: 8081
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 10m
+            memory: 50Mi
+status: {}
