@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: test-component-jemx
+  namespace: build-e2e-khmn-tenant
+spec:
+  replicas: 1
+  selector: {}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio-qe/test-images@sha256:ff7cfe2ead2d23c7002ba7b99980c6d0de04ba02356495c8f0b1e0975572e6e6
+        name: my-python
+        resources: {}
+status: {}
